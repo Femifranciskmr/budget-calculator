@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>budget calculator home page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+ <style>
+
+
+.inputsececpense{
+            display: flex;
+        }
+        .resultsecdiv{
+            display: flex;
+        }
+        .spentmoneyhead{
+            display: flex;
+            margin: 20px;
+            justify-content:center;
+        }
+        table{
+            margin: 10px;
+        }
+        .tablesection{
+            display: flex;
+        }
+        .divbtnsec{
+            display: flex;
+            justify-content: center;
+        }
+    @media screen and (max-width:500px) {
+        #home nav ul{
+        list-style: none;
+        margin-right: 25px;
+        display: flex;
+        }
+        .spentmoney h2{
+           font-size: 18px;
+        }
+        .inputsececpense{
+            display: block;
+        }
+        .resultsecdiv{
+            display: block;
+        }
+        .spentmoneyhead{
+            display: flex;
+            justify-content: start;
+        }
+        .image{
+            width: 150px;
+        }
+        .divbtnsec{
+          display: block;
+        }
+        .tablesection{
+            display: none;
+        }
+    }
+
+
+ </style>  
+</head>
+<body class="">
+
+    <section id="home">
+
+        <!-- nav section -->
+    
+        <nav>
+            <div class="logo">
+                <img src="images/logicon.jpg" width="80px" height="80px">
+            </div>
+            <div class="icon">
+            <!-- <a href="" id="generate" onclick="myFunction()"><i class="fa-solid fa-qrcode fa-beat"></i></a> -->
+            <!-- <button onclick="myFunction()">Try it</button> -->
+            </div>
+        <ul>
+            <li><a href="index.html">logout</a></li>
+            <li><a href="login.html">sign in</a></li>
+           
+        </ul>
+    
+    </nav>
+    </section>
+
+<div class="container">
+    <!-- input section -->
+    <div class="mt-10 col-2">
+        <label for="enter money">enter the amount you want to manage</label>
+        <input id="entermoney" type="text" class=" border border-primary form-control">
+        <p id="error" class=" ml-2 d-none mt-3">please enter a valid emount</p>
+    </div>
+    <!-- manage budgect section -->
+    <div class="mt-10 spentmoney">
+        <div class="spentmoneyhead"><p class="text-center"><h2>how you divide your money</h2></p></div>
+        <div class="mt-5 inputsececpense">
+            <div class="flex-grow-1 col-2">
+                <label for="">room rent</label>
+                <input  id="roomrent" type="text" class=" border border-secondary form-control py-1" >
+            </div>
+            <div class="col-1"></div>
+            <div class="flex-grow-1 col-2">
+                <label for="">accessaries</label>
+                <input  id="accessaries" type="text" class=" border border-secondary form-control py-1">
+            </div>
+            <div class="col-1"></div>
+            <div class="flex-grow-1 col-2">
+                <label for="">emergency</label>
+                <input  id="emergency" type="text" class=" border border-secondary form-control py-1">
+            </div>
+            <div class="col-1"></div>
+            <div class="flex-grow-1 col-2">
+                <label for="">savings</label>
+                <input  id="savings" type="text" class=" border border-secondary form-control py-1">
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="mt-5">
+            <div class="divbtnsec"> <button id="evaluvate" class="bg-secondary text-white py-2 px-4 " onclick="evaluvate()">evaluvate</button></div> 
+           
+        </div>
+       
+        <!-- manage budget section -->
+        <div class="mt-10">
+            <div class="spentmoneyhead"><p class="text-center"><h2>how you should manage money</h2></p></div>
+            
+                <div class="mt-5 resultsecdiv w-10">
+                    <div class="shadow-lg bg-primary px-4 py-4">
+                        <h1 class="font-bold text-white" >amount</h1>
+                        <p id="amountpara" class="text-white"></p>
+                    </div>
+                    <div class="bg-danger shadow-lg px-4 py-4">
+                        <h1 class="font-bold text-white text-xl" >total</h1>
+                        <p id="totalpara" class="text-white"></p>
+                    </div>
+                    <div class="bg-warning shadow-lg px-4 py-4">
+                        <h1 class="font-bold text-white" >balance</h1>
+                        <p id="balancepara" class="text-white "></p>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+  
+    <div class="row tablesection">
+        <div class="divbtnsec"><button class="btn bg-danger mt-5" onclick="displaydata()">add table</button></div>
+        <div class="col-2"></div>
+        <div class="col-8">
+            
+                <table class="border border-3 border-primary table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="border border-3 border-primary p-2">salary</th>
+                            <th class="border border-3 border-primary p-2">roomrent</th>
+                            <th class="border border-3 border-primary p-2">accessaries</th>
+                            <th class="border border-3 border-primary p-2">emergency</th>
+                            <th class="border border-3 border-primary p-2">saving</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result">
+    
+                    </tbody>
+                    </table>
+          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-3"><div class="col-2">
+            <button id="reset" class="btn bg-secondary " onclick="reset()">
+            reset
+           </button>
+           <img src="images/homeimg.gif" alt="" width="400" class="image">
+    </div></div>
+    </div>
+</div>
+
+<script>
+var entermoney=document.getElementById('entermoney')
+
+var roomrent=document.getElementById('roomrent')
+var accessseries=document.getElementById('accessaries')
+var emergency=document.getElementById('emergency')
+var saving=document.getElementById('savings')
+
+function evaluvate(){
+if(roomrent.value==""|| accessseries.value==""|| emergency.value=="" || saving.value==""){
+ alert("please fill the form")
+ console.log(roomrent.value);
+ 
+}
+else{
+    var roomper=parseInt(roomrent.value)
+    var accessper=parseInt(accessseries.value)
+    var emerper=parseInt(emergency.value)
+    var saveper=parseInt(saving.value)
+    var total=roomper+accessper+emerper+saveper
+    var amount=entermoney.value
+    var salaryamount=amount
+    var balance=amount-total
+    amountpara.innerHTML=`${salaryamount}`
+    totalpara.innerHTML=`${total}`
+    balancepara.innerHTML=`${balance}`
+
+
+    
+}
+
+var balanceamont=balance
+
+}
+
+function reset(){
+entermoney.value=``
+roomrent.value=``
+accessaries.value=``
+emergency.value=``
+savings.value=``
+amountpara.innerHTML=``
+totalpara.innerHTML=``
+balancepara.innerHTML=``
+result.innerHTML=``
+}
+
+function displaydata(){  
+   htmldata=`
+                 <tr>
+                    <td class="border border-3 border-secondary">${entermoney.value}</td>
+                    <td class="border border-3 border-primary" >${roomrent.value}</td>
+                    <td class="border border-3 border-primary" >${accessaries.value}</td>
+                    <td class="border border-3 border-primary" >${emergency.value}</td>
+                    <td class="border border-3 border-primary" >${saving.value}</td> 
+                </tr>   
+                `
+                result.innerHTML+=htmldata
+ }
+
+
+
+
+</script>
+</body>
+</html>
